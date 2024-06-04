@@ -1,0 +1,177 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="jumbotron text-center pastel-yellow-bg">
+    <h1 class="display-4">PAPERBACK COLLECTIONS</h1>
+    <p class="lead">One stop shop for your book discovery experience</p>
+</div>
+
+
+
+<div class="container mt-4">
+
+<div class="container">
+
+<div id="fiction-books">
+      <h1 class="my-4 bg-primary text-white border-2 w-100">Fiction Books</h1>
+
+      <div class="row">
+        {% for product in products %}
+            {% if product.category == 'Fiction' %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                  <div class="card h-100">
+                    <img class="card-img-top" src="{{ product.image }}" alt="{{ product.title }}">
+                    <div class="card-body">
+                      <h4 class="card-title">{{ product.title }}</h4>
+                      <p class="card-text">{{ product.description|truncate(100) }}</p>
+                      <p class="card-text text-bold">Price: {{ product.price }}</p>
+                      <p class="card-text">Author: {{ product.author }}</p>
+                      <a href="{{ url_for('add_to_cart', product_id=product.id) }}" class="btn btn-primary" type="button">Add to cart</a>
+                      <a href="{{ url_for('product_detail', product_id=product.id) }}" class="btn btn-primary" type="button">Book Details</a>
+                    </div>
+                  </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+      </div>
+  </div>
+
+<div id="non-fiction-books">
+      <h1 class="my-4 bg-primary text-white border-2 w-100">Non Fiction Books</h1>
+
+      <div class="row">
+        {% for product in products %}
+            {% if product.category == 'Non Fiction' %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                  <div class="card h-100">
+                    <img class="card-img-top" src="{{ product.image }}" alt="{{ product.title }}">
+                    <div class="card-body">
+                      <h4 class="card-title">{{ product.title }}</h4>
+                      <p class="card-text">{{ product.description|truncate(100) }}</p>
+                      <p class="card-text text-bold">Price: {{ product.price }}</p>
+                      <p class="card-text">Author: {{ product.author }}</p>
+                      <button class="btn btn-primary" type="button">Add to cart</button>
+                    </div>
+                  </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+      </div>
+  </div>
+
+<div id="science-fiction-books">
+      <h1 class="my-4 bg-primary text-white border-2 w-100">Science Fiction Books</h1>
+
+      <div class="row">
+        {% for product in products %}
+            {% if product.category == 'Science Fiction' %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                  <div class="card h-100">
+                    <img class="card-img-top" src="{{ product.image }}" alt="{{ product.title }}">
+                    <div class="card-body">
+                      <h4 class="card-title">{{ product.title }}</h4>
+                      <p class="card-text">{{ product.description|truncate(100) }}</p>
+                      <p class="card-text text-bold">Price: {{ product.price }}</p>
+                      <p class="card-text">Author: {{ product.author }}</p>
+                      <button class="btn btn-primary" type="button">Add to cart</button>
+                    </div>
+                  </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+      </div>
+  </div>
+
+<div id="biography-books">
+      <h1 class="my-4 bg-primary text-white border-2 w-100">Biography Books</h1>
+
+      <div class="row">
+        {% for product in products %}
+            {% if product.category == 'Biography' %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                  <div class="card h-100">
+                    <img class="card-img-top" src="{{ product.image }}" alt="{{ product.title }}">
+                    <div class="card-body">
+                      <h4 class="card-title">{{ product.title }}</h4>
+                      <p class="card-text">{{ product.description|truncate(100) }}</p>
+                      <p class="card-text text-bold">Price: {{ product.price }}</p>
+                      <p class="card-text">Author: {{ product.author }}</p>
+                      <button class="btn btn-primary" type="button">Add to cart</button>
+                    </div>
+                  </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+      </div>
+  </div>
+
+</div>
+
+
+
+<div class="container">
+    <h2 class="read-with-us">Discover your next read with us</h2>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 col-lg-3 category-link">
+            <span>
+                Fiction
+                <div class="dropdown-menu">
+                    <img src="{{ url_for('static', filename='img/fiction.jpg') }}" alt="Fiction">
+                    <div class="dropdown-item">Gone Girl</div>
+                    <div class="dropdown-item">The Hunger Games</div>
+                    <div class="dropdown-item">The Great Gatsby</div>
+                    <div class="dropdown-item">The Hobbit</div>
+                    <div class="dropdown-item">The Da Vinci Code</div>
+                    <div class="dropdown-item">★BESTSELLERS★</div>
+                </div>
+            </span>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 category-link">
+            <span>
+                Non Fiction
+                <div class="dropdown-menu">
+                    <img src="{{ url_for('static', filename='img/nonfiction.jpg') }}" alt="Non Fiction">
+                    <div class="dropdown-item">A Brief History of Time</div>
+                    <div class="dropdown-item">The Glass Castle</div>
+                    <div class="dropdown-item">Hiroshima</div>
+                    <div class="dropdown-item">Educated</div>
+                    <div class="dropdown-item">Into the Wild</div>
+                    <div class="dropdown-item">★BESTSELLERS★</div>
+                </div>
+            </span>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 category-link">
+            <span>
+                Science Fiction
+                <div class="dropdown-menu">
+                    <img src="{{ url_for('static', filename='img/scifi.jpg') }}" alt="Science Fiction">
+                    <div class="dropdown-item">Dune</div>
+                    <div class="dropdown-item">The Martian</div>
+                    <div class="dropdown-item">Project Hail Mary</div>
+                    <div class="dropdown-item">The Stand</div>
+                    <div class="dropdown-item">Dark Matter</div>
+                    <div class="dropdown-item">★BESTSELLERS★</div>
+                </div>
+            </span>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 category-link">
+            <span>
+                Biographies
+                <div class="dropdown-menu">
+                    <img src="{{ url_for('static', filename='img/biography.jpg') }}" alt="Biographies">
+                    <div class="dropdown-item">Steve Jobs</div>
+                    <div class="dropdown-item">Alexander Hamilton</div>
+                    <div class="dropdown-item">Becoming</div>
+                    <div class="dropdown-item">Napoleon: A Life</div>
+                    <div class="dropdown-item">Begin Again</div>
+                    <div class="dropdown-item">★BESTSELLERS★</div>
+                </div>
+            </span>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+ 

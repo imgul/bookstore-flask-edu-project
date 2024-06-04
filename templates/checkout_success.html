@@ -1,0 +1,10 @@
+<!-- templates/checkout_success.html -->
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Checkout Successful</h1>
+    <p>Thank you for your purchase!</p>
+    <a href="{{ url_for('home') }}" class="btn btn-primary">Continue Shopping</a>
+</div>
+{% endblock %}

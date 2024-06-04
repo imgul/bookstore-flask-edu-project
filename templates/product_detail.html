@@ -1,0 +1,52 @@
+<!-- templates/product_detail.html -->
+{% extends 'layout.html' %}
+
+{% block content %}
+
+    <main class="container my-5">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{{ product.image }}" class="img-fluid" alt="Cover of the book Gone Girl by Gillian Flynn">
+            </div>
+            <div class="col-md-8 book-details text-left">
+                <h1 class="mb-3">{{ product.title }}</h1>
+                <h5 class="text-muted">by <span class="text-primary">{{ product.author }}</span></h5>
+                <p class="mt-3">{{ product.description }}</p>
+                <h4 class="mt-4">${{ product.price }}</h4>
+
+                <div class="mt-4">
+                    <h5>Product Details</h5>
+                    <ul>
+                        <li>ISBN: {{ product.isbn }}</li>
+                        <li>Category: {{ product.category }}</li>
+                        <li>Publisher: {{ product.publisher }}</li>
+                        <li>Publication Date: {{ product.published_on }}</li>
+                        <li>Rating:
+                            <span class="star-rating">
+                                ★★★★☆
+                            </span>
+                        </li>
+                        <li>Reviews: {{ product.reviews }} reviews
+                        </li>
+                    </ul>
+                </div>
+                <a href="{{ url_for('add_to_cart', product_id=product.id) }}" for="shippingForm" class="btn btn-primary mt-3">Add to Cart</a>
+            </div>
+        </div>
+    </main>
+
+
+{#<div class="row">#}
+{#    <div class="col-md-6">#}
+{#        <img src="{{ url_for('static', filename='img/' + product.image) }}" class="img-fluid" alt="{{ product.name }}">#}
+{#    </div>#}
+{#    <div class="col-md-6">#}
+{#        <h1>{{ product.name }}</h1>#}
+{#        <p>{{ product.description }}</p>#}
+{#        <h2>${{ product.price }}</h2>#}
+{#        <a href="#" class="btn btn-primary">Add to Cart</a>#}
+{#    </div>#}
+{#</div>#}
+
+{% endblock %}
+

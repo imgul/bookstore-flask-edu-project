@@ -1,0 +1,43 @@
+<!-- templates/cart.html -->
+{% extends 'layout.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <h1 class="text-center">Shopping Cart</h1>
+
+        {% if carts %}
+          <table class="table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cart in carts %}
+                <tr>
+                    <td>{{ cart.product.title }}</td>
+                    <td>{{ cart.quantity }}</td>
+                    <td>${{ cart.product.price }}</td>
+                    <td>
+                        <a href="{{ url_for('remove_from_cart', cart_id=cart.id) }}" class="btn btn-danger">Remove</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+            <a href="{{ url_for('checkout') }}" class="btn btn-success">Proceed to Checkout</a>
+
+        {% else %}
+          <div class="alert alert-warning" role="alert">
+            You don't have any products in your cart yet. Please proceed to the <a href="{{ url_for('home') }}" class="alert-link">shop page</a> to add products to your cart.
+          </div>
+        {% endif %}
+    </div>
+
+{% endblock %}
+
+ 

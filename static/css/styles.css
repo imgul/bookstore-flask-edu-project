@@ -1,0 +1,103 @@
+/* Styles used for home page */
+.dropdown-menu {
+	display: none;
+}
+
+.category-link:hover .dropdown-menu {
+	display: block;
+}
+
+.navbar-nav {
+	margin-left: auto;
+}
+
+.form-inline {
+	margin-right: auto;
+	max-width: 500px; /* Changed from cm to px for better handling */
+	width: 100%; /* Adjusted to be responsive */
+}
+
+.form-control {
+	width: 100%; /* Adjusted to be responsive */
+}
+
+.container {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.category-link {
+	margin-bottom: 15px;
+	position: relative; /* Ensure pseudo-element is positioned correctly */
+}
+
+/* Styling for dropdown headings */
+.category-link span {
+	font-weight: bold;
+	color: #ff6600; /* Bright orange color */
+	font-size: 1.25rem; /* Increase font size */
+	transition: color 0.3s; /* Smooth transition for color change */
+	position: relative; /* Ensure pseudo-element is positioned correctly */
+	padding-right: 20px; /* Space for the arrow */
+}
+
+.category-link span:hover {
+	color: #ff3300; /* Slightly darker shade on hover */
+}
+
+/* Adding the down arrow using a pseudo-element */
+.category-link span::after {
+	content: '\25BC'; /* Unicode for down arrow */
+	font-size: 0.75rem; /* Smaller size for the arrow */
+	color: inherit; /* Inherit the text color */
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.carousel-img {
+	max-height: 400px;
+	object-fit: cover;
+}
+
+.navbar-brand {
+	position: relative;
+	z-index: 2;
+}
+
+.jumbotron {
+	position: relative;
+	z-index: 1;
+}
+
+.navbar {
+	margin-bottom: 0;
+}
+
+.read-with-us {
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 36px;
+	color: #333333;
+	margin-bottom: 30px;
+	font-style: italic;
+}
+
+.pastel-yellow-bg {
+	background-color: #fff9c4;
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.wth {
+	width: 350px !important;
+}
+
+/* Styles used for home page */
+.dropdown-menu {
+	display: none;
+	position: absolute;
+	top: calc(100% + 5px); /* Position dropdown below the heading */
+	left: 50%; /* Center the dropdown */
+	/*transform:*/
+}
